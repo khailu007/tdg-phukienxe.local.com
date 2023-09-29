@@ -1,0 +1,35 @@
+
+---Downloaded files---
+The import files for: Onepage Elementor were successfully downloaded!
+Initial max execution time = 3600
+Files info:
+Site URL = https://tdg-phukienxe.local.com:444
+Data file = D:\xampp7\www\tdg-phukienxe.local.com/wp-content/uploads/2023/09/demo-content-import-file_2023-09-29__01-52-28.xml
+Widget file = D:\xampp7\www\tdg-phukienxe.local.com/wp-content/uploads/2023/09/demo-widgets-import-file_2023-09-29__01-52-28.json
+Customizer file = not defined!
+Redux files:
+pix_options -> D:\xampp7\www\tdg-phukienxe.local.com/wp-content/themes/essentials/inc/demo-content/sites/onepage/onepage-elementor-options.json 
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Main Sidebar : 
+
+PixFort Search - Search - Imported
+PixFort Promo Box - Call to action - Imported
+Tag Cloud - No Title - Imported
+PixFort Recent Posts - Recent Posts - Imported
+PixFort Categories - Categories - Imported
+PixFort Social Links - Social Links - Imported
+
+
+
+---Importing Redux settings---
+Redux settings import for: pix_options finished successfully!
