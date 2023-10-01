@@ -49,7 +49,7 @@ if(!empty($_GET["post_intro"])){
 	}
 }
 	?>
-	<div class="col-12 col-lg-12">
+	<div class="col-12 col-lg-10 offset-lg-1">
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main">
 
@@ -65,7 +65,7 @@ if(!empty($_GET["post_intro"])){
 		</div>
 	</div>
 
-<div class="col-12 col-md-2 col-lg-1">
+<div class="col-12 col-md-2 col-lg-1 offset-lg-1 ">
 	<div class="pix-my-20 pix-post-meta-box sticky-top pix-sticky-top-adjust" style="top:120px;">
 		<?php do_action( 'pix_post_meta_box_start'); ?>
 		<?php
@@ -93,14 +93,14 @@ if(!empty($_GET["post_intro"])){
 		<?php do_action( 'pix_post_meta_box_end'); ?>
 	</div>
 </div>
-<div class="col-12 col-md-10 offset-md-22">
+<div class="col-12 col-md-8 offset-md-22 ">
 	<div class="content-area pix-post-area">
 		<main class="site-main post-full-width">
 			<article <?php post_class(); ?>>
 				<header class="entry-header">
 					<?php
 
-					if ( 'post' === get_post_type() ) :
+					if ( 'sp_nhom' === get_post_type() ) :
 
 						$author = get_the_author();
 						$avatar = get_avatar_url(get_the_author_meta('ID'), array('size'=>80));
@@ -125,7 +125,7 @@ if(!empty($_GET["post_intro"])){
 							}
 						}
 						if(!$post_intro){
-							//$text_class = 'text-heading-default';
+							$text_class = 'text-heading-default';
 							$title_sliding = 'pix-sliding-headline';
 							if( !empty(pix_get_option('blog-disable-title-animation')) ){
 					            if(pix_get_option('blog-disable-title-animation')){

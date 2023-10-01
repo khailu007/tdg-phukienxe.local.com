@@ -21,10 +21,9 @@ if(!empty(pix_get_option('blog-style'))){
 	$opts['style'] = pix_get_option('blog-style');
 }
 
-
-if($opts['layout']!='default'){
-	$opts['content_col'] = 7;
-	$opts['has_sidebar'] = true;
+if($opts['layout']=='default-normal'){
+	$opts['content_col'] = 12;
+	$opts['has_sidebar'] = false;
 	$opts['content_classes'] = '';
 }
 $attr = array(
@@ -49,7 +48,7 @@ if(!empty($_GET["post_intro"])){
 	}
 }
 	?>
-	<div class="col-12 col-lg-10 offset-lg-1">
+	<div class="col-12 col-lg-12">
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main">
 
@@ -65,7 +64,7 @@ if(!empty($_GET["post_intro"])){
 		</div>
 	</div>
 
-<div class="col-12 col-md-2 col-lg-1 offset-lg-1 ">
+<div class="col-12 col-md-2 col-lg-1 ">
 	<div class="pix-my-20 pix-post-meta-box sticky-top pix-sticky-top-adjust" style="top:120px;">
 		<?php do_action( 'pix_post_meta_box_start'); ?>
 		<?php
@@ -93,7 +92,7 @@ if(!empty($_GET["post_intro"])){
 		<?php do_action( 'pix_post_meta_box_end'); ?>
 	</div>
 </div>
-<div class="col-12 col-md-8 offset-md-22 ">
+<div class="col-12 col-md-10 ">
 	<div class="content-area pix-post-area">
 		<main class="site-main post-full-width">
 			<article <?php post_class(); ?>>
@@ -108,7 +107,7 @@ if(!empty($_GET["post_intro"])){
 						$cat_args = array( 'fields' => 'names' );
 						$cat_args = array( 'fields' => 'all' );
 						$cats = wp_get_post_categories(get_the_ID(), $cat_args);
-
+						
 
 						$post_intro = true;
 						if(!pix_get_option('post-with-intro')){
@@ -125,7 +124,7 @@ if(!empty($_GET["post_intro"])){
 							}
 						}
 						if(!$post_intro){
-							$text_class = 'text-heading-default';
+							//$text_class = 'text-heading-default';
 							$title_sliding = 'pix-sliding-headline';
 							if( !empty(pix_get_option('blog-disable-title-animation')) ){
 					            if(pix_get_option('blog-disable-title-animation')){
@@ -150,36 +149,55 @@ if(!empty($_GET["post_intro"])){
 								</a>
 							</div>
 							<div class="flex-fill text-right mr-2">
-								<div class="pix-post-meta-badges">
-								<?php
-								foreach ($cats as $value) {
-									$badge_attrs = array(
-										'text'	=> $value->name,
-										'text_size'	=> 'custom',
-										'text_custom_size'		=> '12px',
-										'bold'  => 'font-weight-bold',
-										'secondary-font'  => 'secondary-font',
-										'custom_css'	=> 'padding:5px 10px;line-height:14px;',
-										'link'      => get_category_link($value->term_id)
-									);
-									if(function_exists('sc_pix_badge')){
-										echo sc_pix_badge($badge_attrs);
-									}else{
-										?>
-								            <a href="<?php echo esc_url(get_category_link($value->term_id)); ?>">
-									    		<span class="d-inline-block mr-1">
-									    			<span class="badge bg-primary-light text-primary pix-px-10 pix-py-5" style="margin-right:3px;line-height:14px;">
-									    				<span class="" style="font-size:12px;">
-									    					<?php echo esc_attr($value->name); ?>
-									    				</span>
-									    			</span>
-									    		</span>
-								    		</a>
-										<?php
-									}
+								<div class="pix-post-meta-badges webrand">
+<!-- Begin Custom taxonomy -->
+							<?php
+							$loop = new WP_Query( array( 'post_type' => 'sp_nhom', 'posts_per_page' => '1' ) );
 
-								}
-								?>
+							if ( $loop->have_posts() ) :
+
+							    while ( $loop->have_posts() ) : $loop->the_post();
+
+							        // get all of the terms for this post, with the taxonomy of categories-projets.
+							        $terms = get_the_terms( $post->ID, 'brand_nhom' );
+							        //the_title();
+
+							        // create the span element, and write out the date this post was created.
+							        //echo "<span>" . the_date();
+
+							        foreach ( $terms as $term ) {
+							        	$badge_attrs = array(
+							        		'text' => $term->name,
+							        		'text_size'	=> 'custom',
+							        		'bold'  => 'font-weight-bold',
+							        		'secondary-font'  => 'secondary-font',
+							        		'custom_css'	=> 'padding:5px 10px;line-height:14px;',
+							        		);
+						        		if(function_exists('sc_pix_badge')){
+						        			echo sc_pix_badge($badge_attrs);
+						        		}else{
+						        			?>
+						        	            <a href="<?php echo esc_url(get_category_link($value->term_id)); ?>">
+						        		    		<span class="d-inline-block mr-1">
+						        		    			<span class="badge bg-primary-light text-primary pix-px-10 pix-py-5" style="margin-right:3px;line-height:14px;">
+						        		    				<span class="" style="font-size:12px;">
+						        		    					<?php echo esc_attr($value->name); ?>
+						        		    				</span>
+						        		    			</span>
+						        		    		</span>
+						        	    		</a>
+						        			<?php
+						        		}
+							            //echo $term->name;
+							        }
+							        //echo "</span>";
+							    endwhile;
+							    wp_reset_query();
+
+							endif;
+							?>
+
+							<!-- End Custom taxonomy -->
 								</div>
 							</div>
 							<div class="pix-post-meta-date flex-fill2 text-right text-body-default text-sm">
@@ -348,7 +366,7 @@ if(!empty($_GET["post_intro"])){
 	// Comments
 	if ( comments_open() || get_comments_number() ) :
 		?>
-		<div class="col-12 col-md-8 offset-md-2 pix-pt-40 pix-pb-80">
+		<div class="col-12 col-md-10 offset-md-1 pix-pt-40 pix-pb-80">
 			<?php comments_template(); ?>
 		</div>
 		<?php

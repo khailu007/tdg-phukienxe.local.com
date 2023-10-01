@@ -731,7 +731,7 @@ function we_sp_nhom_custom_post_type(){
             'revisions', //* Nội dung mô tả ngắn --> Khi thêm silde không cần thì chúng ta bỏ đi */
             'custom-fields' //* Nội dung mô tả ngắn --> Khi thêm silde không cần thì chúng ta bỏ đi */
         ), //Các tính năng được hỗ trợ trong post type
-        //'taxonomies' => array('category-project','post-tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
+        //'taxonomies' => array('category-nhom','post-tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
         //'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
         'public' => true, //Kích hoạt post type
         'show_ui' => true, //Hiển thị khung quản trị như Post/Page
@@ -755,6 +755,21 @@ function we_sp_nhom_custom_post_type(){
 		'hierarchical' 			=> true,
 		'label' 				=> 'Danh mục sản phẩm',
 		'singular_label' 		=>  'Danh mục sản phẩm',
+		'rewrite'				=> true,
+		// 'rewrite' => array('slug' => 'projects', 'with_front' => true),
+		// 'rewrite' => array('slug' => ''),
+		'query_var' 			=> true,
+		'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+		'show_in_rest' => true,
+		));
+    register_taxonomy('brand_nhom', 'sp_nhom', array(
+		'hierarchical' 			=> true,
+		'label' 				=> 'Thương hiệu',
+		'singular_label' 		=>  'Thương hiệu',
 		'rewrite'				=> true,
 		// 'rewrite' => array('slug' => 'projects', 'with_front' => true),
 		// 'rewrite' => array('slug' => ''),
@@ -1073,7 +1088,7 @@ function we_sp_inox_custom_post_type(){
     register_taxonomy('cateinox', 'sp_inox', array(
 		'hierarchical' 			=> true,
 		'label' 				=> 'Danh mục sản phẩm',
-		'singular_label' 		=>  'Danh mục sản phẩm',
+		'singular_label' 		=> 'Danh mục sản phẩm',
 		'rewrite'				=> true,
 		// 'rewrite' => array('slug' => 'projects', 'with_front' => true),
 		// 'rewrite' => array('slug' => ''),
@@ -1085,6 +1100,22 @@ function we_sp_inox_custom_post_type(){
         'show_tagcloud'              => true,
 		'show_in_rest' => true,
 		));
+
+    register_taxonomy('brand_inox', 'sp_inox', array(
+		'hierarchical' 			=> true,
+		'label' 				=> 'Thương hiệu',
+		'singular_label' 		=>  'Thương hiệu',
+		'rewrite'				=> true,
+		// 'rewrite' => array('slug' => 'projects', 'with_front' => true),
+		// 'rewrite' => array('slug' => ''),
+		'query_var' 			=> true,
+		'public'                     => true,
+	    'show_ui'                    => true,
+	    'show_admin_column'          => true,
+	    'show_in_nav_menus'          => true,
+	    'show_tagcloud'              => true,
+		'show_in_rest' => true,
+	));
 
       // Add new taxonomy, NOT hierarchical (like tags)
       // $labels = array(
@@ -1112,8 +1143,7 @@ function we_sp_inox_custom_post_type(){
       //   'update_count_callback' => '_update_post_term_count',
       //   'query_var' => true,
       //   'rewrite' => array( 'slug' => 'tagproject' ),
-      // ));
- 
+      // )); 
 }
 add_action('init', 'we_sp_inox_custom_post_type');
 
