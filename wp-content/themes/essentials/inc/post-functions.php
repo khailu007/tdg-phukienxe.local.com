@@ -106,7 +106,7 @@ if ( ! function_exists( 'get_pix_related_posts' ) ) {
             if( $my_query->have_posts() ) {
             ?>
     		<div class="col-12">
-    		<h5 class="pix-py-50 text-center"><span class="my-2 d-inline-block text-heading-default"><strong><?php esc_attr_e( 'Related Posts', 'essentials' ); ?></strong></span></h5>
+    		<h5 class="pix-py-50 text-center"><span class="my-2 d-inline-block text-heading-default"><strong><?php esc_attr_e( 'Các nội dung liên quan', 'essentials' ); ?></strong></span></h5>
     		</div>
             <?php
         		while ($my_query->have_posts()) : $my_query->the_post();
@@ -288,7 +288,7 @@ if ( ! function_exists( 'essentials_get_post_excerpt_template' ) ) {
                     'bold'  => 'font-weight-bold',
                     'secondary-font'  => 'secondary-font',
                     'custom_css'	=> 'padding:5px 10px;margin-right:3px;line-height:12px;',
-                    'link'      => get_category_link($value->term_id)
+                    //'link'      => get_category_link($value->term_id)
                 );
                 if($blog_layout=='full-img'){
                     $badge_attrs['text_color'] = 'dark-opacity-5';
@@ -300,7 +300,7 @@ if ( ! function_exists( 'essentials_get_post_excerpt_template' ) ) {
         }else{
             if($blog_layout!='full-img'){
                 foreach ($cats as $value) {
-                    $cats_str .= '<a href="'.get_category_link($value->term_id).'">';
+                    //$cats_str .= '<a href="'.get_category_link($value->term_id).'">';
             		$cats_str .= '<span class="d-inline-block mr-1">';
             			$cats_str .= '<span class="badge bg-primary-light text-primary pix-px-10 pix-py-5" style="margin-right:3px;line-height:12px;">';
             				$cats_str .= '<span class="" style="font-size:12px;">';

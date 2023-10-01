@@ -131,13 +131,13 @@ $post_sidebar_class = 'post-sidebar-'.$sidebar_location;
 												'bold'  => 'font-weight-bold',
 												'secondary-font'  => 'secondary-font',
 												'custom_css'	=> 'padding:5px 10px;line-height:14px;',
-												'link'      => get_category_link($value->term_id)
+												//'link'      => get_category_link($value->term_id)
 											);
 											if(function_exists('sc_pix_badge')){
 												echo sc_pix_badge($badge_attrs);
 											}else{
 												?>
-										            <a href="<?php echo esc_url(get_category_link($value->term_id)); ?>">
+										            <!-- <a href="<?php //echo esc_url(get_category_link($value->term_id)); ?>"> -->
 											    		<span class="d-inline-block mr-1">
 											    			<span class="badge bg-primary-light text-primary pix-px-10 pix-py-5" style="margin-right:3px;line-height:14px;">
 											    				<span class="" style="font-size:12px;">

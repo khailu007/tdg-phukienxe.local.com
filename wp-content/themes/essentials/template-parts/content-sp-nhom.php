@@ -143,7 +143,7 @@ if(!empty($_GET["post_intro"])){
 
 						<div class="entry-meta pix-post-meta-inner d-flex align-items-center pix-my-20">
 							<div class="pix-post-meta-author text-heading-default font-weight-bold">
-								<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" class="pix-post-entry-author text-heading-default font-weight-bold">
+								<a href="<?php echo get_permalink(); ?>" class="pix-post-entry-author text-heading-default font-weight-bold">
 									<img class="pix_blog_md_avatar pix-mr-10 shadow" src="<?php echo esc_url($avatar); ?>" alt="<?php echo esc_attr( $author ); ?>">
 									<span class="text-sm"><?php echo esc_attr( $author ); ?></span>
 								</a>

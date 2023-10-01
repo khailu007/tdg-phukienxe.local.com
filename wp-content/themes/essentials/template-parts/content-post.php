@@ -144,7 +144,11 @@ if(!empty($_GET["post_intro"])){
 
 						<div class="entry-meta pix-post-meta-inner d-flex align-items-center pix-my-20">
 							<div class="pix-post-meta-author text-heading-default font-weight-bold">
-								<a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" class="pix-post-entry-author text-heading-default font-weight-bold">
+<!-- 								<a href="<?php //echo get_author_posts_url(get_the_author_meta('ID')); ?>" class="pix-post-entry-author text-heading-default font-weight-bold">
+									<img class="pix_blog_md_avatar pix-mr-10 shadow" src="<?php //echo esc_url($avatar); ?>" alt="<?php //echo esc_attr( $author ); ?>">
+									<span class="text-sm"><?php //echo esc_attr( $author ); ?></span>
+								</a> -->
+								<a href="<?php echo get_permalink(); ?>" class="pix-post-entry-author text-heading-default font-weight-bold">
 									<img class="pix_blog_md_avatar pix-mr-10 shadow" src="<?php echo esc_url($avatar); ?>" alt="<?php echo esc_attr( $author ); ?>">
 									<span class="text-sm"><?php echo esc_attr( $author ); ?></span>
 								</a>
@@ -159,14 +163,14 @@ if(!empty($_GET["post_intro"])){
 										'text_custom_size'		=> '12px',
 										'bold'  => 'font-weight-bold',
 										'secondary-font'  => 'secondary-font',
-										'custom_css'	=> 'padding:5px 10px;line-height:14px;',
-										'link'      => get_category_link($value->term_id)
+										'custom_css'	=> 'padding:5px 10px;line-height:14px;'
+										//'link'      => get_category_link($value->term_id)
 									);
 									if(function_exists('sc_pix_badge')){
 										echo sc_pix_badge($badge_attrs);
 									}else{
 										?>
-								            <a href="<?php echo esc_url(get_category_link($value->term_id)); ?>">
+								            <!-- <a href="<?php //echo esc_url(get_category_link($value->term_id)); ?>"> -->
 									    		<span class="d-inline-block mr-1">
 									    			<span class="badge bg-primary-light text-primary pix-px-10 pix-py-5" style="margin-right:3px;line-height:14px;">
 									    				<span class="" style="font-size:12px;">

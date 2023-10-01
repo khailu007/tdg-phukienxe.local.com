@@ -339,7 +339,7 @@ function pix_blog_item($query_blog, $attr, $divider_out = ''){
 					'bold'  => 'font-weight-bold',
 					'secondary-font'  => 'secondary-font',
 					'custom_css'	=> 'padding:5px 10px;line-height:12px;margin-right:3px;',
-					'link'      => get_category_link($value->term_id)
+					//'link'      => get_category_link($value->term_id)
 				);
 				$cats_str .= sc_pix_badge($badge_attrs);
 			}

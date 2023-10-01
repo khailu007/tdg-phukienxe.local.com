@@ -921,7 +921,7 @@ abstract class Skin_Base extends Elementor_Skin_Base {
 
 		$tag = $this->get_instance_value( 'title_tag' );
 		?>
-		<<?php Utils::print_validated_html_tag( $tag ); ?> class="elementor-post__title">
+		<<?php Utils::print_validated_html_tag( $tag ); ?> class="elementor-post__title we_cus_title">
 			<a href="<?php echo esc_attr( $this->current_permalink ); ?>" <?php echo esc_attr( $optional_attributes_html ); ?>>
 				<?php the_title(); ?>
 			</a>
